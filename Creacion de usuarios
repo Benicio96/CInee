@@ -1,0 +1,28 @@
+USE mysql;
+
+SELECT * FROM USER;
+-- Generacion de usuario de pepita
+CREATE USER 'pepita'@'localhost' IDENTIFIED BY 'root1234';
+
+-- Le damos permiso para poder ver la lectura de las tablas de cine en especifico
+GRANT SELECT ON cine.clientes TO 'pepita'@'localhost';
+GRANT SELECT ON cine.entradas TO 'pepita'@'localhost';
+GRANT SELECT ON cine.funciones TO 'pepita'@'localhost';
+GRANT SELECT ON cine.peliculas TO 'pepita'@'localhost';
+GRANT SELECT ON cine.salas TO 'pepita'@'localhost';
+-- En general
+GRANT SELECT ON blockbuster.* TO 'pepita'@'localhost';
+
+
+
+
+-- Generacion de usuario de pepito
+CREATE USER 'pepito'@'localhost' IDENTIFIED BY '1234';
+-- Le damos permiso para que pueda ver, insercion y modificacion de datos para cada tabla
+GRANT SELECT,INSERT, UPDATE, DELETE ON cine.clientes TO 'pepito'@'localhost';
+GRANT SELECT,INSERT, UPDATE, DELETE ON cine.entradas TO 'pepito'@'localhost';
+GRANT SELECT,INSERT, UPDATE, DELETE ON cine.funciones TO 'pepito'@'localhost';
+GRANT SELECT,INSERT, UPDATE, DELETE ON cine.peliculas TO 'pepito'@'localhost';
+GRANT SELECT,INSERT, UPDATE, DELETE ON cine.salas TO 'pepito'@'localhost';
+-- En general
+GRANT SELECT,INSERT, UPDATE, DELETE ON blockbuster.* TO 'pepito'@'localhost';
